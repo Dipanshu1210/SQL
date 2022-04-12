@@ -1,4 +1,5 @@
 create table client_master(clietno varchar(20),name varchar(20),city varchar(20),pincode number(10),state varchar(20),baldue number(10));
+
 insert into client_master values('c00001','ivan bayross','mumbai',400054,'maharashtra',15000);
 
 insert into client_master values('c00002','mamta mazumdar','madras',780001,'tamilnadu',0);
@@ -11,4 +12,19 @@ insert into client_master values('c00005','hansel colaco','mumbai',400060,'mahar
 
 insert into client_master values('c00006','deepak sharma','bangalore',560050,'karnataka',0);
 
+select name from client_master;
+
 select *from client_master;
+
+select name,city,state from client_master;
+
+select *from client_master where city='mumbai';
+
+select *from client_master where baldue=15000;
+
+select * from client_master where name like 'm%';
+
+select *from client_master where state='maharashtra' or state='karnataka';
+
+
+
