@@ -1,0 +1,1 @@
+create table product_master(production varchar(20),description varchar(20),profit_percent number(20),unit_measure varchar(20),qtyon_hand number(10),reoerder_lvl number(10),sell_price varchar(20),cost_price varchar(20));
