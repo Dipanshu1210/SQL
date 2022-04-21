@@ -1,1 +1,38 @@
-create table product_master(production varchar(20),description varchar(20),profit_percent number(20),unit_measure varchar(20),qtyon_hand number(10),reoerder_lvl number(10),sell_price varchar(20),cost_price varchar(20));
+create table productmaster(productno varchar2(6),description varchar2(15), profitpercent number(4,2),unitmeasure varchar2(10),qtyonhand number(8), reorderlvl number(8,2),sellprice number(8,2),costprice number(8,2))
+
+select * from productmaster
+
+
+
+
+
+
+
+
+
+
+
+
+create table product_master(productno varchar(20),description varchar(20),profit_percent number(20),unit_measure varchar(20),qtyon_hand number(10),reorder_lvl number(10),sell_price number(20),cost_price number(20));
+
+insert into product_master values('p00001','1.44floppies',5,'piece',200,50,350,250);
+
+insert into product_master values('p03453','monitors',6,'piece',150,50,500,350);
+
+insert into product_master values('p06734','mouse',5,'piece',100,20,600,450);
+
+insert into product_master values('p07865','1.22floppies',5,'piece',100,20,750,500);
+
+insert into product_master values('p07868','keyboard',2,'piece',150,50,850,550);
+
+insert into product_master values('p07885','cd drive',2.5,'piece',80,30,700,450);
+
+insert into product_master values('p07965','540 HDD',4,'piece',100,40,350,250);
+
+insert into product_master values('p07975','1.44 Drive',5,'piece',70,30,300,175);
+
+insert into product_master values('p08865','1.22 Drive',5,'piece',75,30,450,300);
+
+
+
+select *from product_master;
