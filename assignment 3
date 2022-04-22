@@ -1,5 +1,4 @@
-create table productmaster(productno varchar2(6),description varchar2(15), profitpercent number(4,2),unitmeasure varchar2(10),qtyonhand number(8), 
-reorderlvl number(8,2),sellprice number(8,2),costprice number(8,2))
+create table productmaster(productno varchar2(6),description varchar2(15), profitpercent number(4,2),unitmeasure varchar2(10),qtyonhand number(8),reorderlvl number(8,2),sellprice number(8,2),costprice number(8,2))
 
 insert into productmaster values('p00001','1.44floppies',5,'piece',200,50,350,250);
 
@@ -21,4 +20,11 @@ insert into productmaster values('p08865','1.22 Drive',5,'piece',75,30,450,300);
 
 
 select * from productmaster
+
+
+select description from productmaster;
+
+
+
+
 
