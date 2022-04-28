@@ -1,3 +1,27 @@
+create table client_master(clientno varchar(20),name varchar(20),city varchar(20),pincode number(10),state varchar(20),baldue number(10));
+
+insert into client_master values('c00001','ivan bayross','mumbai',400054,'maharashtra',15000);
+
+insert into client_master values('c00002','mamta mazumdar','madras',780001,'tamilnadu',0);
+
+insert into client_master values('c00003','chhaya banker','mumbai',400057,'maharashtra',5000);
+
+insert into client_master values('c00004','asvini joshi','bangalore',560001,'karnataka',0);
+
+insert into client_master values('c00005','hansel colaco','mumbai',400060,'maharashtra',2000);
+
+insert into client_master values('c00006','deepak sharma','bangalore',560050,'karnataka',0);
+
+
+
+select *from client_master;
+
+
+
+
+
+
+
 create table productmaster(productno varchar2(6),description varchar2(15), profitpercent number(4,2),unitmeasure varchar2(10),qtyonhand number(8),reorderlvl number(8,2),sellprice number(8,2),costprice number(8,2))
 
 insert into productmaster values('p00001','1.44floppies',5,'piece',200,50,350,250);
@@ -22,7 +46,54 @@ insert into productmaster values('p08865','1.22 Drive',5,'piece',75,30,450,300);
 select * from productmaster
 
 
+select name from client_master;
+
+select name,city from client_master;
+
 select description from productmaster;
+
+select *from client_master where city='mumbai';
+
+select *from client_master where clientno='c00001' or clientno='c00002';
+
+select *from productmaster where sellprice>5000;
+
+select *from client_master where city='madras' or city='dehli' or city='bombay';
+
+select *from product_master where sellprice between 1999 and 5001;
+
+select name, city,state from client_master where state not in 'maharastra';
+
+update productmaster set sellprice=1150 where description='1.44floppies';
+
+delete from client_master where clientno='c00001';
+
+select *from productmaster where sellprice>1500;
+
+select *from client_master where city like'-a%';
+
+select *from client_master where name like 'a%';
+
+select description from productmaster order by description asc;
+
+select count(DISTINCT description) from productmaster;
+
+select AVG(costprice) from productmaster;
+
+select MIN(costprice) from productmaster;
+
+select MIN(costprice)"MINprice",MAX(costprice)"MAXprice" from productmaster;
+
+select count(productno) from productmaster where costprice>1500;
+
+select description from productmaster order by sellprice DESC;
+
+
+
+
+
+
+
 
 
 
