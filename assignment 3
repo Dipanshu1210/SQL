@@ -60,7 +60,8 @@ select *from productmaster where sellprice>5000;
 
 select *from client_master where city='madras' or city='dehli' or city='bombay';
 
-select *from product_master where sellprice between 1999 and 5001;
+select *from product_master where sellprice>2000 and sellprice<=5000;
+select *from product_master where sellprice between 2000 and 5000;
 
 select name, city,state from client_master where state not in 'maharastra';
 
@@ -87,14 +88,6 @@ select MIN(costprice)"MINprice",MAX(costprice)"MAXprice" from productmaster;
 select count(productno) from productmaster where costprice>1500;
 
 select description from productmaster order by sellprice DESC;
-
-
-
-
-
-
-
-
 
 
 
