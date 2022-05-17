@@ -11,7 +11,6 @@ ytd_Sales varchar(30) check (Ytd_Sales!=0),
 remarks	Varchar	(30),
 constraint c_56 check(salesman_no like 's%'));
 
-select * from sales_Master
 
 insert into sales_Master156 values('s00001','kiran','A/14 worli','mumbai','mah',400002,300,100,'50','good');
 
@@ -21,7 +20,9 @@ insert into sales_master156 values('s00003','ravi','P-7 Bandra','mumbai','mah',4
 
 insert into sales_master156 values('s00004','ashish','A/5 Juhu Bombay','mumbai','mah',400044,3500,200,'150','good');
 
-select *from salse_master156;
+select *from sales_master156;
+
+
 
 craete table Sales_Order
 (S_order_NO varchar(6) primary key,
