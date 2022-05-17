@@ -1,0 +1,19 @@
+create table emp(
+empcode varchar(6),
+empname varchar(20)
+);
+insert into emp values('E1','001Rajkumar');
+insert into emp values('E2','Ramkumar002');
+insert into emp values('E3','Ravikumar003');
+select * from emp;
+
+select ascii(empname) from emp;
+select upper(empname) from emp;
+select lower(empname) from emp;
+select initcap(empname) from emp;
+select substr(empname,1,7) from emp;
+select concat('HELLO ',' SQL') from emp;
+select length(empname) from emp;
+
+
+select  empcode , replace(replace(replace(replace(empname,'0',''), '1',''),'2',''), '3', '')  empname from emp;
