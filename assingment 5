@@ -34,7 +34,15 @@ Dely_type char (1),
 Billed_yn char(1),
 Dely_Date date,
 Order_Status varchar(10)
+constraint c_1 check(salesman_no like 'o%'));
 
 
 
-constraint c_1 check(salesman_no like 'o%')
+
+
+create table	Sales_Order_Details
+(S_Order_No	Varchar	(6)
+Product_No	Varchar2 (6)
+Qty_order	Number	(8)	
+Qty_disp	Number	(8)	
+Product_rate	Number	(10,2));	
