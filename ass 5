@@ -1,0 +1,235 @@
+create table Sales_master(
+Salesman_no varchar2 (6),
+Sal_name varchar2(20) not null,
+Address varchar2 (20) not null,
+City varchar2 (20),
+State varchar2 (20),
+Pincode number (6),
+Sal_amt number(8,2) not null,
+Tgt_to_get number(6,2) not null,
+Ytd_sales number(6,2) not null,
+Remarks varchar2(30),
+primary key (Salesman_no)
+);
+
+
+
+
+insert into sales_Master values('s00001','kiran','A/14 worli','mumbai','mah',400002,300,100,'50','good');
+
+insert into sales_master values('s00002','mansih','65,nariman','mumbai','mah',400001,3000,200,'100','good');
+
+insert into sales_master values('s00003','ravi','P-7 Bandra','mumbai','mah',400032,3000,200,'100','good');
+
+insert into sales_master values('s00004','ashish','A/5 Juhu Bombay','mumbai','mah',400044,3500,200,'150','good');
+
+
+select *from sales_master;
+
+
+
+
+CREATE TABLE Sales_Order(
+S_order_No VARCHAR (6) CHECK (S_order_No LIKE 'o%')  PRIMARY KEY,
+S_order_Date DATE ,
+Client _No VARCHAR (6) FOREIGN KEY,
+Dely_type CHAR(1)  CHECK (Dely _type IN ('p', 'f'))  DEFAULT 'F' ,
+Billed_yn CHAR (1),
+Salesman_No VARCHAR (6) FOREIGN KEY,
+Dely_Date DATE CHECK (Dely_Date > S_order_Date ),
+Order_Status VARCHAR (10) CHECK (Order_Status IN ('inprocess', 'fulfilled', 'backorder', 'canceled'))
+);
+
+
+
+CREATE TABLE sales_order
+(s_order_no VARCHAR(6) primary key,
+s_order_date DATE ,
+client_no VARCHAR(6)NOT NULL,
+dely_add VARCHAR(25),
+salesman_no VARCHAR(6),
+dely_type CHAR(1),
+billed_yn CHAR(1),
+dely_date DATE)
+ALTER TABLE sales_order
+ADD FOREIGN KEY (CLIENT_NO) REFERENCES CLIENTMASTER(CLIENT_NO);
+SELECT * from CLIENTMASTER
+ALTER TABLE CLIENTMASTER
+ADD primary key (CLIENT_NO);
+
+
+
+
+
+insert into sales_orders
+values(70001,150.5,to_date('2012-10-05', 'yyyy-mm-dd'), 3005,5002);
+
+insert into orders
+values(70009,270.65,to_date('2012-09-10', 'yyyy-mm-dd'), 3001,5005);
+
+insert into orders
+values(70002,65.26,to_date('2012-10-05', 'yyyy-mm-dd'), 3002,5001);
+
+insert into orders
+values(70004,110.5,to_date('2012-08-17', 'yyyy-mm-dd'), 3009,5003);
+
+insert into orders
+values(70007,948.5,to_date('2012-09-10', 'yyyy-mm-dd'), 3005,5002);
+
+insert into orders
+values(70005,2400.6,to_date('2012-07-27', 'yyyy-mm-dd'), 3007,5001);
+
+insert into orders
+values(70008,5760,to_date('2012-09-10', 'yyyy-mm-dd'), 3002,5001);
+
+insert into orders
+values(70010,1983.43,to_date('2012-10-10', 'yyyy-mm-dd'), 3004,5006);
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE Sales_Order_Details(
+S_Order_No VARCHAR(6) PRIMARY KEY,
+Product_No VARCHAR2 (6) ,
+Qty_order NUMBER(8),
+Qty_disp NUMBER (8),
+Product_rate NUMBER (10,2)
+);
+
+
+
+
+insert into sales_order_details values ('019001','P00001',4,4,525);  
+insert into sales_order_details values ('019001','P07965',2,1,8400)
+insert into sales_order_details values ('019001','P07885',2,1,5250)  
+insert into sales_order_details values ('019002','P00001',10,0,525)
+insert into sales_order_details values ('046865','P07868',3,3,3150) 
+insert into sales_order_details values ('046865','P07885',10,10,5250)  
+insert into sales_order_details values ('019003','P00001',4,4,1050)   
+insert into sales_order_details values ('019003','P03453',2,2,1050) 
+insert into sales_order_details values ('046866','P06734',1,1,12000) 
+insert into sales_order_details values ('046866','P07965',1,0,8400) 
+insert into sales_order_details values ('019008','P07975',1,0,1050)
+insert into sales_order_details values ('019008','P00001',10,5,525)
+insert into Sales_Order_Details VALUES('019001','P00001',4,4,525);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table client_master12
+(client_no varchar(20),
+name varchar(20),
+city varchar(20),
+pincode number(10),
+state varchar(20),
+baldue number(10));
+
+insert into client_master12 values('c00001','ivan bayross','mumbai',400054,'maharashtra',15000);
+
+insert into client_master12 values('c00002','mamta mazumdar','madras',780001,'tamilnadu',0);
+
+insert into client_master12 values('c00003','chhaya banker','mumbai',400057,'maharashtra',5000);
+
+insert into client_master12 values('c00004','asvini joshi','bangalore',560001,'karnataka',0);
+
+insert into client_master12 values('c00005','hansel colaco','mumbai',400060,'maharashtra',2000);
+
+insert into client_master12 values('c00006','deepak sharma','bangalore',560050,'karnataka',0);
+
+select *from client_master12;
+
+
+
+
+alter table client_master12 add primary key (client_no);
+
+
+alter table client_master12 add (phone_no1 varchar2 (11));
+
+
+
+
+create table productmaster(
+productno varchar2(6),
+description varchar2(15),
+profitpercent number(4,2),
+unitmeasure varchar2(10),
+qtyonhand number(8),
+reorderlvl number(8,2),
+sellprice number(8,2),
+costprice number(8,2)
+);
+
+insert into productmaster values('p00001','1.44floppies',5,'piece',200,50,350,250);
+
+insert into productmaster values('p03453','monitors',6,'piece',150,50,500,350);
+
+insert into productmaster values('p06734','mouse',5,'piece',100,20,600,450);
+
+insert into productmaster values('p07865','1.22floppies',5,'piece',100,20,750,500);
+
+insert into productmaster values('p07868','keyboard',2,'piece',150,50,850,550);
+
+insert into productmaster values('p07885','cd drive',2.5,'piece',80,30,700,450);
+
+insert into productmaster values('p07965','540 HDD',4,'piece',100,40,350,250);
+
+insert into productmaster values('p07975','1.44 Drive',5,'piece',70,30,300,175);
+
+insert into productmaster values('p08865','1.22 Drive',5,'piece',75,30,450,300);
+
+select * from productmaster;
+
+
+
+
+
+
+alter table productmaster modify(description varchar2(20)  not null)
+
+alter table productmaster modify(profit percent number(5,1) not null)
+
+alter table productmaster modify(sell_price number(20,5) not null)
+
+alter table productmaster modify(cost_price number(5,0) not null)
+
+
+
+alter table
+           productmaster
+           MODIFY(sellprice number(8) NOT NULL)
+           MODIFY(costprice number(8) NOT NULL)
+           MODIFY(profitpercent number(6) NOT NULL)
+           MODIFY(description varchar2(15) NOT NULL);
+
+
+alter table client_master12 modify(client_no varchar(10));
+
+
+
+
+
+
+
+
+Select  product_no, description
+from product_masterwhere profit_percent  between 20 and 30;
