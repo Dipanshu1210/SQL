@@ -4,6 +4,8 @@ NAME VARCHAR(20),
 CITY VARCHAR(20), 
 commission float(20)
 );
+
+
 ALTER TABLE salesman MODIFY commission FLOAT;
 
 INSERT INTO salesman VALUES(5001,'James Hoog','New york',0.15);
