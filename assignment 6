@@ -51,48 +51,49 @@ SELECT * FROM CUSTOMER;
 
 
 CREATE TABLE ORDERS(
+Ord_no NUMBER(20),
+Purch_amt FLOAT(20),
+Ord_date DATE,
+Customer_id NUMBER(20),
+Salesman_id NUMBER (20)
+);
+					
+					
+					
+INSERT INTO ORDERS VALUES(70001,150.5,TO_DATE('2012-10-05','yyyy-mm-dd'),	3005	,5002);
+					
+INSERT INTO ORDERS VALUES(70009,270.65,TO_DATE('2012-09-10','yyyy-mm-dd'),	3005	,5005);
 
-	Ord_no NUMBER(20),
-		Purch_amt FLOAT(20),
-			Ord_date DATE,
-				Customer_id NUMBER(20),
-					Salesman_id NUMBER (20)
-					);
-					
-					SELECT * FROM ORDERS;
-					
-					INSERT INTO ORDERS VALUES(70001,150.5,TO_DATE('2012-10-05','yyyy-mm-dd'),	3005	,5002);
-					
-						INSERT INTO ORDERS VALUES(70009,270.65,TO_DATE('2012-09-10','yyyy-mm-dd'),	3005	,5005);
-
-	INSERT INTO ORDERS VALUES(70002,65.26,TO_DATE('2012-10-05','yyyy-mm-dd'),	3002	,5001);
+INSERT INTO ORDERS VALUES(70002,65.26,TO_DATE('2012-10-05','yyyy-mm-dd'),	3002	,5001);
 	
-		INSERT INTO ORDERS VALUES(70004,110.5,TO_DATE('2012-08-17','yyyy-mm-dd'),	3009	,5003);
+INSERT INTO ORDERS VALUES(70004,110.5,TO_DATE('2012-08-17','yyyy-mm-dd'),	3009	,5003);
 		
-			INSERT INTO ORDERS VALUES(70007,948.5,TO_DATE('2012-09-10','yyyy-mm-dd'),	3005	,5002);
+INSERT INTO ORDERS VALUES(70007,948.5,TO_DATE('2012-09-10','yyyy-mm-dd'),	3005	,5002);
 			
-				INSERT INTO ORDERS VALUES(70005,2400.06,TO_DATE('2012-07-27','yyyy-mm-dd'),	3007	,5001);
+INSERT INTO ORDERS VALUES(70005,2400.06,TO_DATE('2012-07-27','yyyy-mm-dd'),	3007	,5001);
 				
-					INSERT INTO ORDERS VALUES(70008,5760,TO_DATE('2012-09-10','yyyy-mm-dd'),	3002	,5001);
+INSERT INTO ORDERS VALUES(70008,5760,TO_DATE('2012-09-10','yyyy-mm-dd'),	3002	,5001);
 					
-						INSERT INTO ORDERS VALUES(70010,1983.43,TO_DATE('2012-10-10','yyyy-mm-dd'),	3004	,5006);
+INSERT INTO ORDERS VALUES(70010,1983.43,TO_DATE('2012-10-10','yyyy-mm-dd'),	3004	,5006);
 						
-						INSERT INTO ORDERS VALUES(70003,2480.4,TO_DATE('2012-10-10','yyyy-mm-dd'),	3009	,5003);
+INSERT INTO ORDERS VALUES(70003,2480.4,TO_DATE('2012-10-10','yyyy-mm-dd'),	3009	,5003);
 						
-						INSERT INTO ORDERS VALUES(70012,250.45,TO_DATE('2012-06-27','yyyy-mm-dd'),	3008	,5002);
+INSERT INTO ORDERS VALUES(70012,250.45,TO_DATE('2012-06-27','yyyy-mm-dd'),	3008	,5002);
 						
-						INSERT INTO ORDERS VALUES(70011,75.29,TO_DATE('2012-08-17','yyyy-mm-dd'),	3003	,5007);
+INSERT INTO ORDERS VALUES(70011,75.29,TO_DATE('2012-08-17','yyyy-mm-dd'),	3003	,5007);
 						
-						INSERT INTO ORDERS VALUES(70013,3045.6,TO_DATE('2012-04-05','yyyy-mm-dd'),	3002	,5001);
+INSERT INTO ORDERS VALUES(70013,3045.6,TO_DATE('2012-04-05','yyyy-mm-dd'),	3002	,5001);
 
 						
-						SELECT *FROM orders;
+SELECT *FROM orders;
 						
-						
-SELECT salesman.name 
+				
+SELECT salesman.name AS "Salesman",
 customer.cust_name, customer.city 
 FROM salesman,customer 
 WHERE salesman.city=customer.city;
+				
+			
 
 
 SELECT  a.ord_no,a.purch_amt,
@@ -117,3 +118,60 @@ INNER JOIN salesman b
 ON a.salesman_id=b.salesman_id 
 WHERE b.commission>.12 
 AND a.city<>b.city;
+
+
+
+SELECT a.cust_name AS "Customer Name", 
+a.city, b.name AS "Salesman", b.city,b.commission  
+FROM customer a  
+INNER JOIN salesman b  
+ON a.salesman_id=b.salesman_id 
+WHERE b.commission>.12 
+AND a.city<>b.city;
+
+
+SELECT a.ord_no,a.ord_date,a.purch_amt,
+b.cust_name AS "Customer Name", b.grade, 
+c.name AS "Salesman", c.commission 
+FROM orders a 
+INNER JOIN customer b 
+ON a.customer_id=b.customer_id 
+INNER JOIN salesman c 
+ON a.salesman_id=c.salesman_id;
+
+
+
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman",b.city 
+FROM customer a 
+LEFT JOIN salesman b 
+ON a.salesman_id=b.salesman_id 
+order by a.customer_id;
+
+
+
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman", b.city 
+FROM customer a 
+LEFT OUTER JOIN salesman b 
+ON a.salesman_id=b.salesman_id 
+WHERE a.grade<300 
+ORDER BY a.customer_id;
+
+
+SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount" 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+order by b.ord_date;
+
+
+SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount", 
+c.name,c.commission 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+LEFT OUTER JOIN salesman c 
+ON c.salesman_id=b.salesman_id;
