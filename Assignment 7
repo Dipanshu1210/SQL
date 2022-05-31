@@ -1,0 +1,37 @@
+CREATE TABLE employeecode(empid VARCHAR2(3) primary key, ename VARCHAR2(25) not NULL, dob date not NULL,doj date not NULL,salary NUMBER(7)not NULL);
+
+alter table employeecode modify empid VARCHAR2(5);
+alter table employeecode
+modify constraint emp check (empid like'%s');
+alter table employeecode
+add constraint doji check(doj>dob);
+alter table employeecode
+add constraint salary1 check(salary>0);
+
+insert into employeecode VALUES('101s','raj','10-jan-2000','15-mar-2019',20000);
+insert into employeecode VALUES('102s','abhi','12-jan-2001','25-mar-2020',15000);
+insert into employeecode VALUES('103s','harsh','10-feb-2000','27-mar-2018',20000);
+insert into employeecode VALUES('104s','amit','18-jan-1999','15-mar-2021',20000);
+insert into employeecode VALUES('105s','ajeet','21-jan-1995','13-jul-2021',30000);
+select *from employeecode;
+
+select *from employeecode where doj='15-mar-2021';
+
+
+
+
+
+select empid from employeecode where to_char(doj,'yyyy')>2018;
+
+
+select *from employeecode where to_char (doj,'mon')='jan';
+
+select * from employeecode where (to_char(doj,'yyyy'))=2019;
+
+select *from employeecode where (mod(salary,2))=1;
+
+
+
+
+
+
