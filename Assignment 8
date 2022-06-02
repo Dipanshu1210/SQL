@@ -6,9 +6,15 @@ alter table emp add constraints sal1 check(salary>0);
 
 INSERT INTO emp VALUES('e01','naman','12-dec-2001','25-feb-2020',40000);
 INSERT INTO emp VALUES('e02','aman','01-dec-2000','15-mar-2020',20000);
-INSERT INTO emp VALUES('e03','ajit','14-mar-2003','25-jan-2021',25000);
+INSERT INTO emp VALUES('e03','ajit','14-mar-2003','25-jan-2021',250000);
 INSERT INTO emp VALUES('e04','banty','10-oct-2000','03-feb-2020',20000);
 INSERT INTO emp VALUES('e05','chirag','08-nov-2001','26-jul-2019',15000);
 INSERT INTO emp VALUES('e06','amit','22-dec-2001','12-feb-2022',40000);
 SELECT * from emp;
 
+
+insert into emp values('E10','DONOR VICKEY',TO_DATE('12/MARCH/1998', 'DD/MONTH/YYYY'),'07-MAR-2017',55690);
+
+
+
+SELECT ename ,to_char(doj,'month dd yyyy') from emp;
