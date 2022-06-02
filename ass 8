@@ -1,0 +1,23 @@
+create table emp (empid varchar2(3)primary key, empname VARCHAR2(25)not null,dob date not null,doj date not null,salary number(7)not null);
+alter table emp add constraint empid1 check(empid like 'E%');
+alter table emp add constraint doj1 check(doj>dob);
+alter table emp add constraint sal1 check (salary>0);
+insert into emp values('E01','JOHN','10-JAN-1998','15-DEC-2019',15699);
+insert into emp values('E02','JOHN CARTER','23-JUN-1997','25-APR-2017',17699);
+insert into emp values('E03','WILL SMITH','20-FEB-1999','26-JUL-2021',19099);
+insert into emp values('E04','BEGGY PITTER','06-JAN-1996','10-OCT-2015',20698);
+insert into emp values('E05','PETER','24-MAR-1999','19-JUN-2018',35690);
+insert into emp values('E06','WILSON ','06-JUN-1995','14-MAR-2019',12699);
+insert into emp values('E07','TOM','17-MAR-1996','07-MAR-2017',55690);
+insert into emp values('E08','HILFIGHER','21-DEC-1998','09-JAN-2019',45697);
+insert into emp values('E09','DONALD TRUMP','28-OCT-1996','25-JUL-2018',29633);
+
+SELECT * FROM EMP;
+
+
+insert into emp values('E10','DONOR VICKEY',TO_DATE('12/MARCH/1998', 'DD/MONTH/YYYY'),'07-MAR-2017',55690);
+
+
+
+
+SELECT empname ,to_char(doj,'month dd yyyy') from emp;
