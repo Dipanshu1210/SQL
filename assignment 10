@@ -1,0 +1,48 @@
+CREATE TABLE Employee (
+EmpId	Number(10),
+Name	Varchar2(20),
+DOJ	Date,
+JobId	Number(10),
+Salary	Number(10));
+
+alter table Employee modify jobid varchar(10);
+
+INSERT INTO Employee VALUES(100,'Aman Jian','17-June-2017','AD_PRES',24000.00);
+
+INSERT INTO Employee VALUES(101,'Yash Kumar',	'15-July-2019','AD_VP',17000.00);
+
+INSERT INTO Employee VALUES(102,'Ayushi','12-Aug-2017','IT_PROG',	9000.00);
+
+INSERT INTO Employee VALUES(103,'Kamal',	'15-Sep-2016','IT_PROG',6000.00);
+
+INSERT INTO Employee VALUES(105,'Madhav Mohan',	'14-July-2018','IT_PROG',	4000.00);
+
+INSERT INTO Employee VALUES(106	,'Astha Sharma','27-June-2017',	'PU_CLERK' ,	2500.00);
+
+
+select *FROM Employee;
+
+SELECT NAME FROM Employee
+WHERE SALARY>(SELECT SALARY FROM Employee WHERE EMPID=104);
+
+SELECT NAME,SALARY,JOBID FROM Employee
+WHERE JOBID=(SELECT JOBID FROM Employee WHERE EMPID=103);
+
+SELECT name, salary, jobid  
+FROM Employee 
+WHERE salary IN  
+( SELECT MIN(salary)  
+FROM Employee 
+GROUP BY jobid 
+);
+
+
+
+SELECT * FROM Employee 
+WHERE DOJ in (SELECT DOJ FROM Employee 
+WHERE EMPID=106);
+
+
+SELECT * FROM Employee 
+WHERE DOJ>(SELECT DOJ FROM Employee 
+WHERE EMPID=102);
