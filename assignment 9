@@ -1,0 +1,43 @@
+CREATE TABLE ORDER1(
+OrderNo	Number(10),
+PurchaseAmt	Number(10),
+Ord_Date	Date,
+CustomerId	Number(10),
+Salesman_Id	Number(10));
+
+
+INSERT INTO  ORDER1 VALUES(101,2000,'12-dec-2013',01,71);
+INSERT INTO  ORDER1 VALUES(102,2200,'10-feb-2019',02,72);
+INSERT INTO  ORDER1 VALUES(103,4500,'14-mar-2014',03,73);
+INSERT INTO  ORDER1 VALUES(104,3600,'23-oct-2012',04,74);
+INSERT INTO  ORDER1 VALUES(105,1400,'25-jan-2020',05,75);
+INSERT INTO  ORDER1 VALUES(106,3200,'05-jun-2019',06,76);
+
+select *from  ORDER1;
+
+select sum(PurchaseAmt) from order1;
+
+select avg(PurchaseAmt) from order1;
+
+SELECT COUNT (DISTINCT salesman_id) FROM order1;
+
+SELECT COUNT(*)  FROM customer;
+
+select MAX(PurchaseAmt) from order1;
+
+select MIN(PurchaseAmt) from order1;
+
+SELECT CUSTOMERID , MAX(PURCHASEAMT) FROM ORDER1 GROUP BY CUSTOMERID;
+
+SELECT CUSTOMERID,ORD_DATE,MAX(PURCHASEAMT) FROM ORDER1 GROUP BY CUSTOMERID,ORD_DATE;
+
+SELECT salesman_id,MAX(PURCHASEAMT) FROM ORDER1 WHERE ORD_DATE=to_date('2013-12-12','yyyy-mm-dd') GROUP BY SALESMAN_ID;
+
+select salesman_id, purchaseamt from order1 where purchaseamt IN (select max(purchaseamt) from order1 where ORD_DATE=to_date('2013-12-12','yyyy-mm-dd') GROUP BY SALESMAN_ID);
+
+
+SELECT CUSTOMERID,ORD_DATE , MAX(PURCHASEAMT) FROM ORDER1 GROUP BY CUSTOMERID,ORD_DATE HAVING MAX(PURCHASEAMT)>2000.00;
+
+
+
+
