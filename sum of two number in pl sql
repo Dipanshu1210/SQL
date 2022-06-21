@@ -1,0 +1,17 @@
+DECLARE
+a int;
+b int; 
+c int;
+BEGIN
+a:=10;
+b:=20;
+c:=a+b;
+dbms_output.put_line ('sum is ' ||c);
+END;
+/
+
+
+
+output
+
+sum is 30
