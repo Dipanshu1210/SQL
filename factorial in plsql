@@ -1,0 +1,15 @@
+declare
+fact number:=1;
+n number:=5;
+begin
+while n>0 loop
+fact:=n*fact;
+n:=n-1;
+end loop;
+dbms_output.put_line('factorial is = ' ||fact);
+end;
+
+
+output:-
+
+factorial is = 120
