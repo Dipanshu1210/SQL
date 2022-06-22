@@ -1,0 +1,29 @@
+declare
+n number;
+i number;
+temp number;
+begin
+n:=12;
+i:=2;
+temp:=1;
+for i in 2..n/2
+loop
+if mod(n,i)=0
+then
+temp:=0;
+exit;
+end if;
+end loop;
+if temp=1
+then
+dbms_output.put_line(n || ' is not a prime number' );
+else
+dbms_output.put_line( n|| ' is a prime number ');
+end if;
+end;
+
+
+
+output:-
+
+12 is a prime number 
