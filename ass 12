@@ -1,0 +1,45 @@
+create table customer111
+(
+ID NUMBER(1), Name VARCHAR(10),age number(3), address VARCHAR(50),salary NUMBER(10)
+);
+
+INSERT INTO customer111 VALUES (1 , 'Ramesh',  32, 'Ahmedabad' , 2000.00 );
+
+INSERT INTO customer111 VALUES (2 ,'Khilan', 25 , 'Delhi' , 1500.00);
+
+INSERT INTO customer111 VALUES (3 , 'kaushi' , 23 , 'Kota' ,2000.00);
+
+INSERT INTO customer111 VALUES (4 , 'Chaitali' , 25 , 'Mumbai' , 6500.00 );
+
+INSERT INTO customer111 VALUES ( 5 , 'Hardik' , 27 , 'Bhopal' , 8500.00 );
+
+INSERT INTO customer111 VALUES ( 6 , 'Komal' ,22 ,'MP' , 4500.00  );
+
+
+
+select *from customer111;
+
+INSERT INTO customer111 (ID,Name,age,address,salary) 
+VALUES (7, 'Kriti', 22, 'HP', 7500.00 );
+
+UPDATE customer111 
+SET salary = salary + 500 
+WHERE id = 2; 
+
+select *from customer111;
+
+
+
+CREATE OR REPLACE TRIGGER display_salary_changes 
+BEFORE DELETE OR INSERT OR UPDATE ON customer111 
+FOR EACH ROW 
+WHEN (NEW.ID > 0) 
+DECLARE 
+   sal_diff number; 
+BEGIN 
+   sal_diff := :NEW.salary  - :OLD.salary; 
+   dbms_output.put_line('Old salary: ' || :OLD.salary); 
+   dbms_output.put_line('New salary: ' || :NEW.salary); 
+   dbms_output.put_line('Salary difference: ' || sal_diff); 
+END; 
+ 
