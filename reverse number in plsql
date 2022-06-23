@@ -1,0 +1,21 @@
+DECLARE
+num NUMBER;
+rev NUMBER;
+BEGIN
+num:=123456;
+rev:=0;
+WHILE num>0 LOOP
+rev:=(rev*10) + mod(num,10);
+num:=floor(num/10);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('Reverse of the number is: ' || rev);
+END;
+/
+
+
+
+
+
+output:-
+
+Reverse of the number is: 654321
