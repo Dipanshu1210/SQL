@@ -15,6 +15,9 @@ insert into client_master values('c00006','deepak sharma','bangalore',560050,'ka
 
 
 
+
+
+
 select name from client_master;
 
 select *from client_master;
