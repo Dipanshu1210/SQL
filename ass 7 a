@@ -9,9 +9,6 @@ insert into Employee_Record VALUES ('E02','Alex','05-Jan-1998','01-Jul-2016',800
 insert into Employee_Record VALUES ('E03','Jenny','11-Oct-1999','01-Apr-2016',8000)
 insert into Employee_Record VALUES ('E04','Max','25-Dec-2000','03-Jan-2017',8000)
 
-
-
-
 select * from Employee_Record
 
 
