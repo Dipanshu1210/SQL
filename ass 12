@@ -28,8 +28,6 @@ WHERE id = 2;
 
 select *from customer111;
 
-
-
 CREATE OR REPLACE TRIGGER display_salary_changes 
 BEFORE DELETE OR INSERT OR UPDATE ON customer111 
 FOR EACH ROW 
