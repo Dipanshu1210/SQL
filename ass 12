@@ -39,5 +39,4 @@ BEGIN
    dbms_output.put_line('Old salary: ' || :OLD.salary); 
    dbms_output.put_line('New salary: ' || :NEW.salary); 
    dbms_output.put_line('Salary difference: ' || sal_diff); 
-END; 
- 
+END;
