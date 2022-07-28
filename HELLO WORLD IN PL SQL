@@ -6,6 +6,22 @@ dbms_output.put_line (text);
 END;
 /
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 OUTPUT:-
 
 Hello World
