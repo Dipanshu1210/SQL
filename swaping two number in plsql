@@ -15,7 +15,7 @@ dbms_output.put_line('num1 = '|| num1 ||' num2 = '|| num2);
 end;
 
 
-output
+output:-
 
 before swaping 
 num1 = 1000 num2 = 2000
